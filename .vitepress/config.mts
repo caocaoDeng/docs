@@ -20,4 +20,22 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/caocaoDeng' }
     ]
   }
+  // transformHead({ assets }) {
+  //   // adjust the regex accordingly to match your font
+  //   const myFontFile = assets.find(file => /handwriting\.ttf/)
+  //   if (myFontFile) {
+  //     return [
+  //       [
+  //         'link',
+  //         {
+  //           rel: 'preload',
+  //           href: myFontFile,
+  //           as: 'font',
+  //           type: 'font/ttf',
+  //           crossorigin: ''
+  //         }
+  //       ]
+  //     ]
+  //   }
+  // }
 })
