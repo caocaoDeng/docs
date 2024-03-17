@@ -1,28 +1,23 @@
 import { defineConfig } from 'vitepress'
+import navbar from '../navbar'
+import sidebar from '../sidebar'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: 'Deng·草草的文档',
+  description: '记录自己在日常开发和技术扩展上的一些问题和笔记等等',
+  base: '/docs/',
+  cleanUrls: true,
+  srcDir: './src',
+  // appearance: 'force-dark',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
+    logo: '/logo.png',
+    nav: navbar,
+    sidebar: sidebar,
+    search: {
+      provider: 'local'
+    },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/caocaoDeng' }
     ]
   }
 })

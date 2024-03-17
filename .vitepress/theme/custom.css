@@ -1,0 +1,15 @@
+/* .vitepress/theme/custom.css */
+:root {
+  --vp-c-brand-1: rgb(46, 169, 223);
+  --vp-c-brand-2: rgb(46, 169, 223);
+  --vp-c-brand-3: rgb(46, 169, 223, 0.8);
+
+  --vp-home-hero-image-background-image: url('/home.webp');
+  --vp-home-hero-image-filter: blur(50px);
+}
+.image-container {
+  transform: none !important;
+}
+.image-bg {
+  background-size: cover !important;
+}
