@@ -15,5 +15,9 @@ export default [
     {
         text: '周记',
         link: '/WeeklyReport/'
+    },
+    {
+        text: '留点什么',
+        link: '/Something/'
     }
 ];
