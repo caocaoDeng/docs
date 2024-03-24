@@ -1,6 +1,7 @@
 export default {
-    '/Backend/': [
-        { text: 'MySQL', link: '/Backend/MySQL.md' }
+    '/Backend/MySQL/': [
+        { text: '介绍', link: '/Backend/MySQL/' },
+        { text: '快速开始', link: '/Backend/MySQL/install' }
     ],
     '/CodeLife/': [
         { text: '概述', link: '/CodeLife/' },

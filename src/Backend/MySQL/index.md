@@ -1,5 +1,5 @@
 ---
-title: MySQL
+title: 介绍
 ---
 #
 ![MySQL](/assets/mysql-logo.svg)

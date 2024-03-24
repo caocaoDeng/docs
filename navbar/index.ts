@@ -6,7 +6,9 @@ export default [
     },
     {
         text: '后端技术栈',
-        items: [{ text: 'MySQL', link: '/Backend/MySQL' }]
+        items: [
+            { text: 'MySQL', link: '/Backend/MySQL/' }
+        ]
     },
     {
         text: '代码人生',
