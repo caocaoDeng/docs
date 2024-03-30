@@ -1,7 +1,8 @@
 export default {
     '/Backend/MySQL/': [
         { text: '介绍', link: '/Backend/MySQL/' },
-        { text: '快速开始', link: '/Backend/MySQL/install' }
+        { text: '快速开始', link: '/Backend/MySQL/install' },
+        { text: 'SELECT语句', link: '/Backend/MySQL/select' },
     ],
     '/CodeLife/': [
         { text: '概述', link: '/CodeLife/' },

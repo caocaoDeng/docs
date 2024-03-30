@@ -21,7 +21,7 @@ net stop mysql83  #停止服务
   
 ::: danger 启动错误
 当 SQL 本地服务启动不了时，将登录账户改为本地系统账户。
-![alt text](51706358.png)
+![alt text](https://caocaodeng.github.io/static/docs51706358.png)
 :::
 
 ## 连接SQL
@@ -45,4 +45,19 @@ v8.3本地连接不需要密码。
 
 ## 图形化工具
 
-[navicat](https://www.navicat.com.cn/download/navicat-premium)
+- [navicat](https://www.navicat.com.cn/download/navicat-premium)
+- [破解版](https://www.32r.com/soft/115254.html)
+
+## 数据导入
+
+```cmd
+source [absolute path]
+```
+
+查看数据。
+```cmd
+show databases; #查看数据库
+use [database name] #使用数据库
+show tables; #查看表
+use [table name] #使用表
+```
