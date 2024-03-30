@@ -21,7 +21,7 @@ net stop mysql83  #停止服务
   
 ::: danger 启动错误
 当 SQL 本地服务启动不了时，将登录账户改为本地系统账户。
-![alt text](https://caocaodeng.github.io/static/docs51706358.png)
+![alt text](https://caocaodeng.github.io/static/docs/51706358.png)
 :::
 
 ## 连接SQL
