@@ -1,4 +1,4 @@
-# 运算符
+# 运算符&查询条件
 
 基本上与其它语言的运算符一致，以下列举一些比较特殊的。
 
@@ -37,9 +37,9 @@
 
 ## 位运算符
 
-> [!WARING] 暂不做了解，后面再看。
+> [!WARNING] 暂不做了解，后面再看。
 
-## 关键字
+## 查询条件（关键字）
 
 | 关键字       | 描述          | example |
 | -------------------| :----------- | :------ |
@@ -54,8 +54,10 @@
 | LIKE               | 模糊查询 | [example](#模糊查询) |
 | REGEXP             | 正则 | `SELECT first_name FROM employees WHERE first_name REGEXP 'na$';` |
 | RLIKE              | 正则 | `SELECT first_name FROM employees WHERE first_name RLIKE '^n';` |
+| ORDER BY           | 对查询的数据进行排序操作 | [排序](#排序) |
+| LIMIT              | 对查询数据进行偏移操作 | [limit](#limit) |
 
-- #### NULL相关
+### NULL相关
   
   ```sql
   #查询为NULL的
@@ -71,7 +73,7 @@
   SELECT employee_id, first_name, commission_pct FROM employees WHERE NOT commission_pct <=> NULL;
   ```
 
-- #### 最值相关
+### 最值相关
 
   ```sql
   #分解ASCL编码进行比较
@@ -80,7 +82,7 @@
   ```
   > [!TIP] `LENGTH`方法可以返回字符串长度。 
 
-- #### 模糊查询
+### 模糊查询
 
   需配合`%`使用；表示任意个字符。`_`代表一个不确定的字符。使用`ESCAPE`关键字可指定转义字符（默认`\`）。
 
@@ -98,3 +100,31 @@
   #指定转义字符
   SELECT first_name FROM employees WHERE first_name LIKE '_*_d%' ESCAPE '*';
   ```
+
+### 排序
+
+  - 升序 ASC。
+  - 降序 DESC。
+
+默认是升序； 
+
+```sql
+SELECT * FROM employees ORDER BY salary;
+SELECT first_name, salary m FROM employees WHERE salary BETWEEN 8000 AND 30000 ORDER BY m DESC;
+```
+> [!WARNING] 列的别名可以在 ORDER BY 中使用，不能在 WHERE 中使用；
+> WHERE 必须声明在 FROM 之后，ORDER BY 之前。
+
+二级或多级排序。
+
+```sql
+SELECT employee_id, salary FROM employees ORDER BY employee_id, salary DESC;
+```
+
+### limit
+
+指定偏移量和条目数来实现分页的功能。
+
+```sql
+SELECT * FROM employees LIMIT 0, 10;
+```
