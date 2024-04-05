@@ -26,10 +26,71 @@
 > 
 > 只要有`NULL`参与的，结果都为 NULL。
 
+## 逻辑运算符
+
+| 操作符 | 描述        | example |
+| ----- | :---------- | :------ |
+| NOT   | 逻辑非 -> `!`  |  |
+| AND   | 逻辑与 -> `&&` |  |
+| OR    | 逻辑或 -> `\|\|` |  |
+| XOR    | 逻辑异或，一真一假 |  |
+
 ## 关键字
 
 | 关键字       | 描述          | example |
-| ------------ | :----------- | :------ |
-| =   | 在 SQL 中，`=`是比较操作不是赋值操作 | `1 = '1'` => `1` |
-| <=> | 安全等于，为 NULL 而生 | `NULL <=> NULL` => `1` |
-| <>  | 不等于 | `1 <> 2` => `1` |
+| -------------------| :----------- | :------ |
+| IS NULL            | 判断一个值、字符串或表达式是否**为空** | [example](#NULL相关) |
+| IS NOT NULL        | 判断一个值、字符串或表达式是否**不为空** | [example](#NULL相关) |
+| ISNULL             | 是一个函数，同 IS NULL | [example](#NULL相关) |
+| LEAST              | 返回多个值中最小的 | [example](#最值相关) |
+| GREATEST           | 返回多个值中最大的 | [example](#最值相关) |
+| BETWEEN...AND..    | 判断是否在这个范围内 | `SELECT salary FROM employees WHERE salary BETWEEN 10000 AND 16000;` |
+| IN                 | 判断一个值是否在列表中 | `SELECT department_id FROM employees WHERE department_id IN(10, 20, 30);` |
+| NOT IN             | 判断一个值是否不在列表中 | `SELECT department_id FROM employees WHERE department_id NOT IN(10, 20, 30);` |
+| LIKE               | 模糊查询 | [example](#模糊查询) |
+| REGEXP             | 正则 | `SELECT first_name FROM employees WHERE first_name REGEXP 'na$';` |
+| RLIKE              | 正则 | `SELECT first_name FROM employees WHERE first_name RLIKE '^n';` |
+
+- #### NULL相关
+  
+  ```sql
+  #查询为NULL的
+  SELECT employee_id, first_name, commission_pct FROM employees WHERE commission_pct IS NULL;
+  #其他写法
+  SELECT employee_id, first_name, commission_pct FROM employees WHERE commission_pct <=> NULL;
+  #ISNULL用法
+  SELECT employee_id, first_name, commission_pct FROM employees WHERE ISNULL(commission_pct);
+
+  #查询不为NULL的
+  SELECT employee_id, first_name, commission_pct FROM employees WHERE commission_pct IS NOT NULL;
+  #其他写法
+  SELECT employee_id, first_name, commission_pct FROM employees WHERE NOT commission_pct <=> NULL;
+  ```
+
+- #### 最值相关
+
+  ```sql
+  #分解ASCL编码进行比较
+  SELECT LEAST('dw', 'dcc', 'dc');
+  SELECT GREATEST('dw', 'dcc', 'dc');
+  ```
+  > [!TIP] `LENGTH`方法可以返回字符串长度。 
+
+- #### 模糊查询
+
+  需配合`%`使用；表示任意个字符。`_`代表一个不确定的字符。使用`ESCAPE`关键字可指定转义字符（默认`\`）。
+
+  ```sql
+  #查询出现过d的
+  SELECT first_name FROM employees WHERE first_name LIKE '%d%';
+  #以d开头
+  SELECT first_name FROM employees WHERE first_name LIKE 'd%';
+  #以d结尾
+  SELECT first_name FROM employees WHERE first_name LIKE '%d';
+  #第二个字符为d的
+  SELECT first_name FROM employees WHERE first_name LIKE '_d%';
+  #查询第二个字符为_的
+  SELECT first_name FROM employees WHERE first_name LIKE '_\_d%';
+  #指定转义字符
+  SELECT first_name FROM employees WHERE first_name LIKE '_*_d%' ESCAPE '*';
+  ```
