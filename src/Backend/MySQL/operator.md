@@ -123,8 +123,16 @@ SELECT employee_id, salary FROM employees ORDER BY employee_id, salary DESC;
 
 ### limit
 
-指定偏移量和条目数来实现分页的功能。
+指定偏移量和条目数来实现分页的功能；当未指定偏移量`LIMIT 10`时等价于`LIMIT 0, 10`
 
 ```sql
 SELECT * FROM employees LIMIT 0, 10;
+```
+> [!TIP] 公式
+> (pageNo - 1) * pageSize, pageSize
+
+在 MySQL8.0 新特性可以使用`LIMIT ... OFFSET ...`实现偏移的操作。
+
+```sql
+SELECT * FROM employees LIMIT 10 OFFSET 0;
 ```
