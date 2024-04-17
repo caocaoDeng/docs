@@ -10,17 +10,27 @@ hero:
   actions:
     - theme: brand
       text: 前端技术栈
-      link: /Frontend
+      link: /Frontend/
     - theme: alt
       text: 后端技术栈
-      link: /Backend
+      link: /Backend/
 
-# features:
-#   - title: Feature A
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Feature B
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Feature C
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-# ---
+features:
+  - icon:
+      src: https://github.githubassets.com/favicons/favicon.svg
+    title: Deng·草草
+    link: https://github.com/caocaoDeng
+    details: 行千里 至广大
+
+  - icon: 📄
+    title: 更多文档
+    link: https://dengcaocao.github.io/docs
+    details: 之前记录的笔记
+
+  - icon:
+      src: https://dengcaocao.github.io/wacom/favicon.ico
+    title: 白板工具
+    link: https://dengcaocao.github.io/wacom
+    details: 使用Vue3 + Vite + Pixi搭建的一款在线手绘样式白板工具
+---
 
