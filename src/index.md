@@ -9,8 +9,13 @@ hero:
   image: /home.webp
   actions:
     - theme: brand
+      text: 当前规划
+      link: /plan/
+
+    - theme: alt
       text: 前端技术栈
       link: /Frontend/
+
     - theme: alt
       text: 后端技术栈
       link: /Backend/
