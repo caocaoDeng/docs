@@ -1,3 +1,3 @@
 ## docs
 
-![docs](/assets/preview.png)
+![docs](https://caocaodeng.github.io/docs/preview.png)
