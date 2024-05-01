@@ -1,3 +1,3 @@
 ## docs
 
-![docs](https://caocaodeng.github.io/docs/preview.png)
+<img src="./images/preview.png" alt="doc_website-cover" />
