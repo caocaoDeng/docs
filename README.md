@@ -1,3 +1,3 @@
 ## docs
 
-[docs](/assets/preview.png)
+![docs](/assets/preview.png)
