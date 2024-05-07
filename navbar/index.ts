@@ -11,6 +11,12 @@ export default [
         ]
     },
     {
+        text: '工具',
+        items: [
+            { text: 'Git', link: '/Tool/Git' }
+        ]
+    },
+    {
         text: '代码人生',
         link: '/CodeLife/'
     },
