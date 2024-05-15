@@ -152,3 +152,159 @@ echo "first commit" | git commit-tree d8329f
 <!-- 指定父提交对象 -->
 echo "first commit" | git commit-tree d8329f -p d8329f
 ```
+
+## 基本命令
+
+查看文件状态。红色未暂存，绿色已暂存。
+```cmd
+git status
+```
+
+将工作区的内容添加到暂存区，可以是文件也可以是目录。
+
+底层：先创建 git 对象`git hash-object -w`，然后再添加到暂存区`git update-index`。
+```cmd
+git add .
+```
+
+提交暂存区。
+
+底层：先创建树对象`git write-tree`，再创建提交对象`git commit-tree`。
+```cmd
+git commit -m 'desc'
+```
+
+查看工作区更新的内容；`--staged`可查看暂存区中更新的内容。
+```cmd
+git diff
+git diff --staged
+```
+
+查看当前分支的提交对象；`--oneline`查看提交历史记录。
+```cmd
+git log
+git log --oneline
+git log --oneline --decorate --graph --all  #查看所以分支的提交历史记录
+```
+
+## 分支
+
+查看分支列表。`-r`查看远程跟踪分支。
+```cmd
+git branch
+```
+
+创建分支。
+```cmd
+git branch [name]
+```
+
+切换分支；`-b`创建分支并切换过去。
+如果指定的是提交对象 hash 或者是标签则会检出分支，形成头部分离的状态，切换分支即可恢复。
+```cmd
+git checkout [name]
+git checkout -b [name]
+```
+::: tip ⚠️注意
+每次切换分支前，应确保当前分支的工作区和暂存区是干净的。
+在切换分支时，分支上有未暂存的修改或未提交的暂存，分支是可以提交成功，但是会污染其他分支。
+:::
+
+删除分支，不能删除当前分支。`-d`删除空分支或已合并的分支；`-D`强制删除分支。
+```cmd
+git branch -d [name]
+```
+
+查看分支最后一次提交。`-vv`查看本地分支跟踪的远程分支。
+```cmd
+git branch -v
+git branch -vv
+```
+
+从指定提交对象上创建分支。
+```cmd
+git branch [name] [hash]
+```
+
+查看分支合并状态。`--merged`列出已合并到当前分支的分支，已合并的分支应考虑删除；
+`--no-merged`列出未合并到当前分支的分支，未合并的分支应考虑是否合并。
+```cmd
+git branch --merged
+git branch --no-merged
+```
+
+分支合并。过程中可能会产生冲突需要解决，处理后需再次暂存和提交。
+可以合并远程分支，本地分支必须与远程分支同名。
+```cmd
+git marge [name]
+```
+
+## 存储
+
+当前需求还没开发完时，又需要切换到其他分支去处理时，可以先将内存暂存起来，并且没有提交记录。
+```cmd
+git stash               #创建存储
+git stash list          #列出存储列表
+git stash apply         #应用存储库中第一个，不会删除存储。先进后出原则
+git stash drop [name]   #删除指定存储
+git stash pop           #应用存储，然后立即删除
+```
+
+## 重置
+
+```cmd
+git checkout -- [filepath]      #撤销工作区的修改
+git restore [filepath]          #同上；推荐
+
+git reset HEAD [filepath]       #撤销暂存区的修改
+git restore --staged [filepath] #同上；推荐
+
+git commit --amend              #修改提交描述，本质上是重新提交
+
+git reset --soft HEAD~          #撤销到上一次提交；移动 HEAD 指向上一次提交对象
+git reset --mixed HEAD~         #同上；移动 HEAD 指向上一次提交对象，撤销暂存区
+git reset --hard HEAD~          #同上；移动 HEAD 指向上一次提交对象，撤销暂存区，撤销工作区(⚠️危险操作，这将导致工作区的内容丢失)
+
+git reset --hard [hash]         #将分支重置到指定的提交对象
+```
+
+## 标签
+
+```cmd
+git tag                 #列出标签
+git tag -l 'v1.8.5*'    #列出1.8.5之前的所有的版本
+
+git tag [name] [hash]   #创建标签，不指定 hash 默认最新
+
+git show [name]         #查看当前标签提交对象内容
+
+git tag -d [name]       #删除标签
+```
+
+## 仓库操作
+
+```cmd
+git remote                              #查看别名，-v可查看仓库地址
+git remote add [origin] [url]           #配置别名
+
+git push [origin] [name]                #推送到远程仓库，已跟踪远程分支可忽略后面参数
+git push --set-upstream origin [name]   #同上；远程不存在此分支
+git pull                                #拉取提交记录
+
+git clone [url]                         #克隆远程仓库到本地，并设置默认别名 origin
+
+git fetch [origin]                      #拉取远程仓库信息
+
+git branch -u [origin name]             #本地分支跟踪远程分支；本地已存在同名分支
+git checkout -b [name] [origin name]    #检出远程分支
+git checkout --track [origin name]      #同上；直接在本地创建同名的本地分支
+
+git push [origin] --delete [origin name]#删除远程分支
+git remote prune [origin] --dry-run     #列出仍在远程跟踪但是远程已被删除的无用分支
+git remote prune [origin]               #清除上面命令列出来的远程跟踪
+```
+
+::: info 总结
+HEAD的本质是指向一个分支，分支的本质是一个提交对象，提交对象指向一个树对象，数对象指向一个或多个git对象，
+一个git对象代表一个文件！！！
+:::

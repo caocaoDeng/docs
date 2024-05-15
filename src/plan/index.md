@@ -13,7 +13,7 @@ const todoList = reactive([
   {
     name: '重学 GIT。',
     desc: '被最近的冲突搞破防了，感觉自己不会 git 了',
-    progress: 0.4
+    progress: 1
   },
   {
     name: '学习 MySQL。',
