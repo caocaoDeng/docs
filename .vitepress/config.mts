@@ -8,6 +8,7 @@ export default defineConfig({
   base: '/docs/',
   cleanUrls: true,
   srcDir: './src',
+  head: [['link', { rel: 'icon', href: '/docs/favicon.ico' }]],
   // appearance: 'force-dark',
   themeConfig: {
     logo: '/logo.png',
