@@ -13,7 +13,8 @@ const init = () => {
     owner: 'caocaoDeng',
     admin:  ['caocaoDeng'],
     id: location.pathname, // Ensure uniqueness and len
-    distractionFreeMode: false // Facebook-like distraction
+    distractionFreeMode: false, // Facebook-like distraction
+    proxy: 'https://strong-caramel-969805.netlify.app/github_access_token'
   })
   gitalk.render('comment-container')
 }
