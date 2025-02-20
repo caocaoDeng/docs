@@ -22,7 +22,7 @@ export default [
     link: '/WeeklyReport/',
   },
   {
-    text: '留点什么',
-    link: '/Something/',
+    text: 'Issues',
+    link: '/comment',
   },
 ]
