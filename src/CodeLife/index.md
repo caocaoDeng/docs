@@ -49,7 +49,7 @@ const process = reactive([
   },
   {
     date: '2024-03',
-    company: '美团外包',
+    company: '美团(外包)',
     desc: `大环境下，工作越来越不好找（hotWord 前端已死），更别说是大专了 😟，最终还是去了外包。`
   }
 ])
@@ -90,6 +90,9 @@ const process = reactive([
   }
   &:nth-child(even) {
     transform: translateX(-55%);
+    .date {
+      text-align: right;
+    }
     .card::after {
       right: -5%;
       transform: translate(50%, -50%);

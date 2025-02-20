@@ -10,10 +10,21 @@
   --vp-font-family-base: 'handwriting';/* normal text font */
   --vp-font-family-mono: 'handwriting';/* code font */
 }
+
+@font-face {
+  font-family: 'name'; /* 自定义字体名称 */
+  src: url('../../src/assets/font/妙笔第蓝体.ttf'); /* 字体文件的路径 */
+}
+
 @font-face {
   font-family: 'handwriting'; /* 自定义字体名称 */
-  src: url('../../src/assets/font/handwriting.ttf'); /* 字体文件的路径 */
+  src: url('../../src/assets/font/字魂飞天手书.ttf'); /* 字体文件的路径 */
 }
+
+/* .VPHomeHero .name .clip {
+  font-family: 'name';
+  font-size: 60px;
+} */
 .image-container {
   transform: none !important;
 }
