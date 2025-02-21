@@ -6,7 +6,7 @@ hero:
   name: 👋 邓草草👣
   # text: 👋 Deng·草草👣
   tagline: 永远就像初次见你那样使我心荡漾
-  image: /home.webp
+  image: /Keyboard.png
   actions:
     - theme: brand
       text: 当前规划

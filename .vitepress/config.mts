@@ -14,6 +14,9 @@ export default defineConfig({
     logo: '/logo.png',
     nav: navbar,
     sidebar: sidebar,
+    outline: {
+      label: '页面导航',
+    },
     search: {
       provider: 'local',
     },
