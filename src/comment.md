@@ -1,3 +1,7 @@
+---
+aside: false
+---
+
 <div id="comment-container"></div>
 
 <script setup>

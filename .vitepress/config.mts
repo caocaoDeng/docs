@@ -18,5 +18,16 @@ export default defineConfig({
       provider: 'local',
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/caocaoDeng' }],
+    lastUpdated: {
+      text: '最近更新',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'short',
+      },
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
   },
 })

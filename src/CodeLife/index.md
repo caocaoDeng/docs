@@ -1,5 +1,9 @@
 ---
+sidebar: false
 aside: false
+lastUpdated: false
+prev: false
+next: false
 ---
 
 <div class="time-line">
