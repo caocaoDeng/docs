@@ -49,6 +49,10 @@ export default [
     ],
   },
   {
+    text: '八股文',
+    link: '/Library/',
+  },
+  {
     text: '代码人生',
     link: '/CodeLife/',
   },
