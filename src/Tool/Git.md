@@ -309,7 +309,7 @@ git remote                              #查看别名，-v可查看仓库地址
 git remote add [origin] [url]           #配置别名
 
 git push [origin] [name]                #推送到远程仓库，已跟踪远程分支可忽略后面参数
-git push --set-upstream origin [name]   #同上；远程不存在此分支
+git push --set-upstream origin [name]   #同上；远程不存在此分支 -u为简写
 git pull                                #拉取提交记录
 
 git clone [url]                         #克隆远程仓库到本地，并设置默认别名 origin
