@@ -32,7 +32,7 @@ export default [
   },
   {
     text: '后端技术栈',
-    items: [{ text: 'MySQL', link: '/Backend/MySQL/' }],
+    items: [{ text: 'MySQL', link: '/Backend/MySQL/介绍.md' }],
   },
   {
     text: '工具',
