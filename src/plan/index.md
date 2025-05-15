@@ -21,11 +21,19 @@ const todoList = reactive([
   },
   {
     name: '服务端渲染 SSR。',
-    desc: 'Nuxejs/Nextjs',
+    desc: 'Nuxtjs/Nextjs',
+    progress: 0
+  },
+  {
+    name: 'Three.js',
     progress: 0
   },
   {
     name: 'Nodejs。',
+    progress: 0
+  },
+  {
+    name: 'Jest',
     progress: 0
   }
 ])
