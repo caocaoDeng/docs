@@ -10,7 +10,7 @@ Array.prototype.myFlat = function (deep) {
   for (let i = 0; i < this.length; i++) {
     if (Array.isArray(this[i])) {
       if (deep < 1) {
-        result = [...result, ...this[i]]
+        result = [...result, this[i]]
       } else {
         result = [...result, ...this[i].myFlat(deep)]
         deep--
