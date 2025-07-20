@@ -10,6 +10,9 @@ export default defineConfig({
   srcDir: './src',
   head: [['link', { rel: 'icon', href: '/docs/favicon.ico' }]],
   appearance: 'dark',
+  markdown: {
+    lineNumbers: true,
+  },
   themeConfig: {
     logo: '/logo.png',
     nav: navbar,

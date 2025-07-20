@@ -50,7 +50,32 @@ export default [
   },
   {
     text: '八股文',
-    link: '/Library/',
+    items: [
+      {
+        text: 'Css',
+        link: '/Library/Css',
+      },
+      {
+        text: 'JavaScript',
+        link: '/Library/JavaScript',
+      },
+      {
+        text: 'Vue',
+        link: '/Library/Vue',
+      },
+      {
+        text: 'React',
+        link: '/Library/React',
+      },
+      {
+        text: '手写题',
+        link: '/Library/HandWriting',
+      },
+      {
+        text: '实战',
+        link: '/Library/Company/P1',
+      },
+    ],
   },
   {
     text: '代码人生',

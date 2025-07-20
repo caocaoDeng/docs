@@ -1,6 +1,55 @@
 ---
-title: 手写
+title: 八股文【手写题】
 ---
+
+## 深拷贝
+
+```js
+const cloneDeep = data => {
+  let result = null
+  const type = Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
+  if (type === 'object') {
+    result = {}
+    for (const i in data) {
+      result[i] = cloneDeep(data[i])
+    }
+  } else if (type === 'array') {
+    result = []
+    for (let i = 0; i < data.length; i++) {
+      result.push(cloneDeep(data[i]))
+    }
+  } else {
+    return data
+  }
+  return result
+}
+```
+
+## 判断两个对象是否相等
+
+```js
+function checkObj(obj1, obj2) {
+  if (typeof obj1 != 'object' || typeof obj2 != 'object') return false
+  // 内存地址相同直接返回true
+  if (obj1 === obj2) return true
+  // 获取对象的所有属性
+  const obj1Keys = Object.getOwnPropertyNames(obj1)
+  const obj2Keys = Object.getOwnPropertyNames(obj2)
+  if (obj1Keys.length !== obj2Keys.length) return false
+  for (let i = 0; i < obj1Keys.length; i++) {
+    if (obj2Keys.includes(obj1Keys[i])) {
+      if (typeof obj1[obj1Keys[i]] === 'object') {
+        return checkObj(obj1[obj1Keys[i]], obj2[obj1Keys[i]])
+      } else {
+        if (obj1[obj1Keys[i]] !== obj2[obj1Keys[i]]) return false
+      }
+    } else {
+      return false
+    }
+  }
+  return true
+}
+```
 
 ## 扁平化数组
 
@@ -18,29 +67,6 @@ Array.prototype.myFlat = function (deep) {
     } else {
       result.push(this[i])
     }
-  }
-  return result
-}
-```
-
-## 深拷贝
-
-```js
-const deepClone = target => {
-  let result = null
-  const type = Object.prototype.toString.call(target).toLowerCase().slice(8, -1)
-  if (type === 'object') {
-    result = {}
-    for (const i in target) {
-      result[i] = deepClone(target[i])
-    }
-  } else if (type === 'array') {
-    result = []
-    for (let i = 0; i < target.length; i++) {
-      result.push(deepClone(target[i]))
-    }
-  } else {
-    return target
   }
   return result
 }
