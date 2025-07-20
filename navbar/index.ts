@@ -69,7 +69,7 @@ export default [
       },
       {
         text: '手写题',
-        link: '/Library/HandWriting',
+        link: '/Library/Write',
       },
       {
         text: '实战',
