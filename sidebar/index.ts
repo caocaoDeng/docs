@@ -28,8 +28,4 @@ export default {
       items: [{ text: '2024', link: '/CodeLife/meituan/2024' }],
     },
   ],
-  '/WeeklyReport/': [
-    { text: '概述', link: '/WeeklyReport/' },
-    { text: '2024', link: '/WeeklyReport/2024' },
-  ],
 }

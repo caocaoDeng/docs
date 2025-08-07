@@ -82,10 +82,6 @@ export default [
     link: '/CodeLife/',
   },
   {
-    text: '周记',
-    link: '/WeeklyReport/',
-  },
-  {
     text: 'Issues',
     link: '/comment',
   },
