@@ -1,0 +1,27 @@
+/* .vitepress/theme/custom.css */
+:root {
+  --vp-c-brand-1: rgb(46, 169, 223);
+  --vp-c-brand-2: rgb(46, 169, 223);
+  --vp-c-brand-3: rgb(46, 169, 223, 0.8);
+
+  --vp-home-hero-image-background-image: url('/Keyboard.png');
+  --vp-home-hero-image-filter: blur(50px);
+}
+
+@font-face {
+  font-family: 'author'; /* 自定义字体名称 */
+  src: url('../../src/assets/font/tianzige.ttf'); /* 字体文件的路径 */
+}
+
+.VPHomeHero {
+  .name,
+  .tagline {
+    font-family: 'author';
+  }
+}
+.image-container {
+  transform: none !important;
+}
+.image-bg {
+  background-size: cover !important;
+}
