@@ -7,10 +7,10 @@ next: false
 ---
 
 <div class="time-line">
-  <div class="process" v-for="({ date, company, desc }, index) in process" :key="index">
+  <div class="process" v-for="({ date, company, path, desc }, index) in process" :key="index">
     <div class="date">{{ date }}</div>
     <div class="card">
-      <div class="title">{{ company }}</div>
+      <div class="title" @click="getDetail(path)">{{ company }}</div>
       <div class="body">
         <details>
           <summary>展开</summary>
@@ -23,6 +23,9 @@ next: false
 
 <script setup>
 import { reactive } from 'vue'
+import { useRouter, withBase } from 'vitepress'
+
+const router = useRouter()
 
 const process = reactive([
   {
@@ -48,9 +51,12 @@ const process = reactive([
   {
     date: '2024-03',
     company: '美团(外包)',
+    path: '/CodeLife/meituan',
     desc: `大环境下，工作越来越不好找（hotWord 前端已死），更别说是大专了 😟，最终还是去了外包。`
   }
 ])
+
+const getDetail = (path) => path && router.go(withBase(path))
 </script>
 
 <style lang="scss">

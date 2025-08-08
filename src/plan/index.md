@@ -36,6 +36,14 @@ const todoList = reactive([
   {
     name: 'Jest',
     progress: 0
+  },
+  {
+    name: 'monoreop + pnmp',
+    progress: 0
+  },
+  {
+    name: 'AI + agent',
+    progress: 0
   }
 ])
 </script>

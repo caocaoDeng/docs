@@ -21,11 +21,7 @@ export default {
     },
   ],
   '/CodeLife/': [
-    { text: '概述', link: '/CodeLife/' },
-    {
-      text: '美团',
-      collapsed: true,
-      items: [{ text: '2024', link: '/CodeLife/meituan/2024' }],
-    },
+    { text: '历程', link: '/CodeLife/' },
+    { text: '美团', link: '/CodeLife/meituan' },
   ],
 }

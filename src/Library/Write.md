@@ -2,6 +2,16 @@
 title: 八股文【手写题】
 ---
 
+## 千位符转换
+
+```js
+function format(number) {
+  return number.replace(/(?!^)(?=(\d{3})+\.)/g, ',')
+  // Intl.NumberFormat().format(number)
+  // number.toLocaleString('en')
+}
+```
+
 ## 深拷贝
 
 ```js
