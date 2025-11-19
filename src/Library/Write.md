@@ -64,21 +64,36 @@ function checkObj(obj1, obj2) {
 ## 扁平化数组
 
 ```js
-Array.prototype.myFlat = function (deep) {
-  let result = []
+Array.prototype.fl = function (deep) {
+  const res = []
   for (let i = 0; i < this.length; i++) {
+    this[i].__proto__.deep = deep
     if (Array.isArray(this[i])) {
-      if (deep < 1) {
-        result = [...result, this[i]]
+      if (this[i].deep <= 0) {
+        res.push(this[i])
       } else {
-        result = [...result, ...this[i].myFlat(deep)]
-        deep--
+        res.push(...this[i].fl(--this[i].__proto__.deep))
       }
     } else {
-      result.push(this[i])
+      res.push(this[i])
     }
   }
-  return result
+  return res
+}
+```
+
+## intanceof
+
+```js
+const myInstanceof = (left, right) => {
+  let proto = left.__proto__
+  // let proto = Object.getPrototypeOf(left)
+  while (true) {
+    if (!proto) return false
+    if (proto === right.prototype) return true
+    // proto = Object.getPrototypeOf(proto)
+    proto = proto.__proto__
+  }
 }
 ```
 
