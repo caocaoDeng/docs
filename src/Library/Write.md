@@ -82,6 +82,19 @@ Array.prototype.fl = function (deep) {
 }
 ```
 
+## reduce
+
+```js
+Array.prototype.myReduce = function (fn, initVal) {
+  const startIndex = initVal ? 0 : 1
+  initVal = initVal || this[0]
+  for (let i = startIndex; i < this.length; i++) {
+    initVal = fn(initVal, this[i], i, this)
+  }
+  return initVal
+}
+```
+
 ## intanceof
 
 ```js
