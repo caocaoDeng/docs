@@ -8,22 +8,22 @@ description: 202403
 - 代码仓库管理平台 devOps
 
 - 需求录入
-
   - 在 ones 上创建，2 天以下建任务，2 天以上建需求。
   - 创建后会进入人力交付平台，本月未完成迭代至下月。
 
 - 工作量考核
-
   - 每月任务 14 个。
   - 代码量 4000。
 
 - git 提交&合并
   - 提交前进行预检，然后填写 commit msg。
+
   ```cmd
   git add ./
   npm run commit
   git push
   ```
+
   - 合并前需提交 pr，进行 code review。
 
 ## 2024-03
@@ -48,7 +48,6 @@ description: 202403
 > 是基础技术部面向业务提供的高可用、高性能、可伸缩、低成本的容器集群平台，主要功能包括容器管理、镜像管理、异常诊断、交付策略管理、弹性管理、资源运营等。
 
 - Vue2、Vue-Router、VueX-class、TypeScript、lodash
-
   - 项目改造：接入 Air 项目标准化升级 SOP，将现有项目接入低代码平台，提高开发效率，累计低代码页面达到 30+。
   - 业务支持：使用低代码开发日常业务和重写部分高代码页面，提高低代码的使用率。
   - UI 升级：将之前部分复杂的页面 UI 替换成当前更符合规范的 MTD UI。
@@ -90,7 +89,6 @@ description: 202403
 
 - Raptor 监控平台
   内部提供监控服务的监控平台，并提供大盘观测和实时告警能力。监控场景覆盖了服务端、客户端、Web 端、小程序、云拨测等。支持研发工程师收集和访问以指标和日志形式存在的所有性能和运行数据，解决监控孤立系统以及应用程序面临的挑战。
-
   - 交互优化：修改下拉查询组件，支持多 IP 查询、高警模拟图表支持拖拽等，提高用户操作体验。
   - 重构优化：当前卡片导航栏存在比较明显的问题，即针对不同宽度浏览器做了三套代码解决方案。这种技术方案在迭代上问题显而易见，修改一个地方数据需要修改三遍，且从交互使用上来看，卡点和疑惑点较多。当初这种做法原因很可能是没找到一款合适的头部交互组件，因此用 mtd UI 的 Carousel 做当前交互。因此，决定针对导航栏开发出一款适合当前业务场景的组件替换当前 Carousel 组件，三组代码合并成一组开发。
   - 问题反馈：
@@ -130,6 +128,65 @@ TT
 cicd
 
 ai 问题，仔细检察
+
+==> node CatClient
+
+基于分支feature/v3.1.1，开发完，合并master
+
+升级jest版本，尽可能新
+
+不要发布
+
+创建单测时，只需要build:js即可，python、 curl-devel等依赖可以不装
+
+对文档中目录上的方法增加单测Node CatClient 使用教程
+
+image.jpeg
+
+打点后应能够通过openAPI查询到打点，线下通过token管理平台申请token，调用openAPI查询打点
+
+Transaction/Event/Problem OpenAPI
+
+Business OpenAPI
+
+建立流水线
+
+image.jpeg
+
+image.jpeg
+
+==>
+资料
+
+Logcenter v1前端开发文档
+
+WebStatic 快速接入
+
+改动：
+
+迁移到webstatic，能够使用灰度能力
+
+目前发布流程是本地build，然后发布到机器，改成流水线里build，然后自动发布，构建产物不再提交到git
+
+dev、prod目前在两个分支，看改造难度，不大的话，都合并到master，使用同一个分支
+
+oceanus
+
+线下使用logcenter.inf.test.sankuai.com测试
+
+https://oceanus.mws-test.sankuai.com/site_detail?site_name=logcenter.inf.test.sankuai.com&site_id=23285&from=all_site&tab=site-config&uuid=
+
+线上配置好，发布，域名切换先不管
+
+线下验证方法：
+
+lcv1.cloud.test.sankuai.com，线下是vip域名，借助mws域名的转发能力验证
+
+/logcenter/ http://logcenter.test.data.sankuai.com接口不变
+
+/ webstatic 静态资源到webstatic
+
+/docs webstatic 静态文档到webstatic
 
 ## 述职
 
