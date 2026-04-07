@@ -18,6 +18,15 @@ function myInstanceof(left, right) {
     // 如果没有找到，就继续从其原型上找，Object.getPrototypeOf方法用来获取指定对象的原型
     proto = Object.getPrototypeOf(proto)
   }
+```
+
+## 千位符转换
+
+```js
+function format(number) {
+  return number.replace(/(?!^)(?=(\d{3})+\.)/g, ',')
+  // Intl.NumberFormat().format(number)
+  // number.toLocaleString('en')
 }
 ```
 
@@ -73,21 +82,49 @@ function checkObj(obj1, obj2) {
 ## 扁平化数组
 
 ```js
-Array.prototype.myFlat = function (deep) {
-  let result = []
+Array.prototype.fl = function (deep) {
+  const res = []
   for (let i = 0; i < this.length; i++) {
+    this[i].__proto__.deep = deep
     if (Array.isArray(this[i])) {
-      if (deep < 1) {
-        result = [...result, this[i]]
+      if (this[i].deep <= 0) {
+        res.push(this[i])
       } else {
-        result = [...result, ...this[i].myFlat(deep)]
-        deep--
+        res.push(...this[i].fl(--this[i].__proto__.deep))
       }
     } else {
-      result.push(this[i])
+      res.push(this[i])
     }
   }
-  return result
+  return res
+}
+```
+
+## reduce
+
+```js
+Array.prototype.myReduce = function (fn, initVal) {
+  const startIndex = initVal ? 0 : 1
+  initVal = initVal || this[0]
+  for (let i = startIndex; i < this.length; i++) {
+    initVal = fn(initVal, this[i], i, this)
+  }
+  return initVal
+}
+```
+
+## intanceof
+
+```js
+const myInstanceof = (left, right) => {
+  let proto = left.__proto__
+  // let proto = Object.getPrototypeOf(left)
+  while (true) {
+    if (!proto) return false
+    if (proto === right.prototype) return true
+    // proto = Object.getPrototypeOf(proto)
+    proto = proto.__proto__
+  }
 }
 ```
 
